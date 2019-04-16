@@ -55,7 +55,8 @@ function getFileNameFromPath(path) {
     // -2 just incase path ends with a slash
     var len = path.length;
     for (var i = len - 2; i > -1; --i) {
-        if (path[i] == '/') {
+        // Linux seems to use '/' while Windows has the escaped '\'
+        if (path[i] == '/' || path[i] == '\\') {
             return path.substring(i + 1, len);
         }
     }
