@@ -5,7 +5,13 @@ const dialog = electron.remote.dialog;
 
 // For window close button
 function onWindowClose() { 
-    console.log('window close'); 
+    console.log('window close');
+    
+    // Clear the queue to revoke blobs.
+    for (var i = 0; i < queue.length; i++) {
+        removeFromQueue(0);
+    }
+    
     win.close();
 }
 

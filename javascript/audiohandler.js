@@ -8,11 +8,14 @@ var queue = []; // All tracks in the queue
 var queueDisplays = []; // Every track's visual display
 var queueIdx = 0;
 
+// TODO: Prevent duplicate blobs
+// Check if url is same and if so point to the originally-generated blob
+
 // Open a file
 function audioOpen (fileName) {
     // Read ID3 tags
     new jsmediatags.Reader(fileName)
-        .setTagsToRead(["title", "artist", "album", "picture"])
+        .setTagsToRead(["title", "artist", "album", "picture", "year"])
         .read({
         onSuccess: function(tag) {
             opened = true;
@@ -64,14 +67,33 @@ function getImageURL(img) {
     if (img == null) {
         return defaultImgPath;
     }
+
     // More memory efficient than concatenating a string
     var b64str = [];
     for (var i = 0; i < img.data.length; i++) {
         b64str.push(String.fromCharCode(img.data[i]));
     }
-    var b64 = "url(data:" + img.format + ";base64," + window.btoa(b64str.join("")) + ")";
-    return b64;
+    /*var b64 = "url(data:" + img.format + ";base64," + window.btoa(b64str.join("")) + ")";
+    return b64;*/
+
+    var url = "data:" + img.format + ";base64," + window.btoa(b64str.join(""));
+    var blob = dataToBlobURL(url);
+    return blob;
 }
+
+// Create a blob. Remember to call URL.revokeObjectURL
+// https://stackoverflow.com/questions/36285268/how-to-embed-a-large-image-with-data-uri
+function dataToBlobURL (url) {
+    var parts = url.split(",", 2);
+    var mime = parts[0].substr(5).split(";")[0];
+    var blob = base64toBlob(parts[1], mime); // base64toBlob defined in lib/methods.js
+    var res = URL.createObjectURL(blob);
+
+    console.log("Creating blob url:" + " mime:" + mime + " blob:" + blob + " res: " + res);
+
+    return res;
+}
+
 
 // Play the audio
 function audioPlay() {
@@ -106,7 +128,7 @@ function addToQueue(a) {
     // Cover
     var ecover = document.createElement("div");
     ecover.setAttribute("class", "tracklist-item-cover");
-    ecover.setAttribute("style", "background-image: " + a.image);
+    ecover.setAttribute("style", "background-image: url(" + a.image + ")");
     e.appendChild(ecover);
     // Title
     var etitle = document.createElement("a");
@@ -149,6 +171,13 @@ function queueIdxChange(newidx) {
     queueDisplays[newidx].setAttribute("class", "tracklist-item tracklist-item-playing");
 }
 
+function removeFromQueue(idx) {
+    console.log("revoking blob at " + idx);
+    var cur = queue[idx];
+    URL.revokeObjectURL(cur.image);
+    queue.splice(idx, 1); // Remove from array.
+}
+
 function queueUpdated() {
     // First song added, open it
     if (queue.length == 1) {
@@ -165,10 +194,11 @@ function currentSongUpdate() {
     document.getElementById("track-artist").innerHTML = "by " + cur.artist;
 
     // Set player background image to the cover art.
-    var img = cur.image;
+    var imgUrl = cur.img;
+    var img = "url(" + cur.image + ")";
     // Check lengths first to avoid the string comparison as im not sure how expensive it is :D
     if (img.length != defaultImgPath.length && img != defaultImgPath) {
-        var b64 = cur.image + "!important";
+        var b64 = img + "!important";
         document.getElementById("ctrl-bar-bottom-cover").pseudoStyle("before", "background-image", b64);
     }
     else {
