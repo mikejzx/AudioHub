@@ -13,6 +13,8 @@ html {
     --colour-border: #000;
     --text-colour: #dddddd;
     --colour-tracklist-item: #111111;
+    --colour-tracklist-item-hover: #1a1a1a;
+    --colour-tracklist-item-playing: #094455;
     --colour-tracklist-item-border: #000;
     --colour-tracklist-artist: #666;
     --colour-tracklist-title: #fff;

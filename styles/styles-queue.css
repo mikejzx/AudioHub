@@ -15,6 +15,18 @@
     background-color: var(--colour-tracklist-item);
     border-bottom: 1px solid var(--colour-tracklist-item-border);
     align-content: center;
+    transition: background-color 500ms;
+}
+
+.tracklist-item:hover {
+    background-color: var(--colour-tracklist-item-hover);
+    transition: background-color 200ms;
+}
+
+/* Applied to the playing track - highlighted */
+.tracklist-item-playing {
+    background-color: var(--colour-tracklist-item-playing) !important;
+    transition: background-color 1s;
 }
 
 /* Track title name */
@@ -30,7 +42,7 @@
     margin-left: calc(var(--tracklist-cover-size) + 15px);
     display: block;
     position: absolute;
-    margin-top: 25px;
+    margin-top: 30px;
     color: var(--colour-tracklist-artist);
     text-shadow: 2px 2px 2px #000;
 }
@@ -39,7 +51,7 @@
     margin-left: calc(var(--tracklist-cover-size) + 15px);
     display: block;
     position: absolute;
-    margin-top: 40px;
+    margin-top: 50px;
     color: var(--colour-tracklist-artist);
     text-shadow: 2px 2px 2px #000;
 }
@@ -58,6 +70,7 @@
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    background-image: url("../img/load.gif");
 }
 
 /* For the 'no tracks' label */

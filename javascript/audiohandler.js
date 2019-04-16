@@ -1,8 +1,11 @@
 
 const jsmediatags = require("jsmediatags");
 const defaultImgPath = "url(\"./img/albumart-default.png\")";
+var playing = false; // CLick event in jsmain.js
+var opened = false;
 var audio = document.getElementById("audio_player");
 var queue = []; // All tracks in the queue
+var queueDisplays = []; // Every track's visual display
 var queueIdx = 0;
 
 // Open a file
@@ -12,6 +15,7 @@ function audioOpen (fileName) {
         .setTagsToRead(["title", "artist", "album", "picture"])
         .read({
         onSuccess: function(tag) {
+            opened = true;
             var tags = tag.tags;
 
             console.log("Successfully opened audio, tit:" + tags.title + " art:" + tags.artist + " alb:" + tags.album);
@@ -120,16 +124,29 @@ function addToQueue(a) {
     efname.innerHTML = a.fileNAME;
     e.appendChild(efname);
 
-
+    // Push to the display list
+    queueDisplays.push(e);
+    // Display it
     list.appendChild(e);
 
+    // Queue was changed
     queueUpdated();
 }
 
 // Change of queue indexNodeProject
 function queueIdxChange(newidx) {
+    var oldidx = queueIdx;
     queueIdx = newidx;
     currentSongUpdate();
+
+    // Play audio if not already playing
+    if (playing) {
+        audioPlay();
+    }
+
+    // TODO: May make use of classList instead
+    queueDisplays[oldidx].setAttribute("class", "tracklist-item");
+    queueDisplays[newidx].setAttribute("class", "tracklist-item tracklist-item-playing");
 }
 
 function queueUpdated() {

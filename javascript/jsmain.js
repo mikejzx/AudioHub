@@ -1,6 +1,4 @@
 
-var playing = false;
-
 const electron = require('electron');
 const win = electron.remote.getCurrentWindow();
 const dialog = electron.remote.dialog;
@@ -35,6 +33,11 @@ function openDevTools() {
 
 // On click of the play/pause button
 function trackPlayPause() {
+    // Can't play/pause no song !
+    if (!opened) {
+        return;
+    }
+
     playing ^= true;
     var state = "Play";
     if (playing) {
@@ -91,7 +94,8 @@ function openFileDialog () {
         ]
     }, function(filePaths, bookmarks) {
         if (filePaths == null) { return; }
-        // TODO: ADD ADDITIONAL FILES INTO QUEUE
-        audioOpen(filePaths[0]);
+        for (var i = 0; i < filePaths.length; ++i) {
+            audioOpen(filePaths[i]);
+        }
     });
 }
