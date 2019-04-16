@@ -8,3 +8,5 @@ as this app would be more portable and versatile due to the cross-platform natur
 # Build requirements:
 * Electron framework: `npm install electron --save`
 * jsmediatags (for ID3 reading): `npm install jsmediatags --save`
+
+16.04.2019: Repository was moved here (from 'AudioPlayerJS') as the original had completely distorted code-line commit counts due to the removal of the node_modules directory.
