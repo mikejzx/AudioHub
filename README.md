@@ -9,4 +9,5 @@ as this app would be more portable and versatile due to the cross-platform natur
 * Electron framework: `npm install electron --save`
 * jsmediatags (for ID3 reading): `npm install jsmediatags --save`
 
-16.04.2019: Repository was moved here (from 'AudioPlayerJS') as the original had completely distorted code-line commit counts due to the removal of the node_modules directory.
+<hr>
+16.04.2019: Repository was moved here (from 'AudioPlayerJS') as the original had completely distorted code-line commit counts due to the removal of the node_modules directory. I apologise to those who wished to have viewed the first 14 commits that were lost, as I had forgotten to archive it...
