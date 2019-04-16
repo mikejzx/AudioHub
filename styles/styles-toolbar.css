@@ -1,0 +1,47 @@
+
+/* Contains each element of the toolbar */
+#toolbar-container {
+    position: absolute;
+    height: inherit;
+    width: fit-content;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+
+    /* Disable ability to drag from the toolbar */
+    -webkit-app-region: none;
+}
+
+/* Toolbar element */
+.toolbar-string {
+    transition: background-color 200ms;
+    background-color: var(--colour-fg);
+    width: fit-content;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    background-position: center;
+    transition: background 300ms;
+}
+/* string contained in the element */
+.toolbar-string > span {
+    vertical-align: middle;
+    pointer-events: none;
+    margin-left: 10px;
+    margin-right: 10px;    
+}
+
+/* Hover on toolbar element */
+.toolbar-string:hover {
+    background: #222222 radial-gradient(circle, transparent 1%, 
+    #222222 1%) center/15000%;
+}
+
+/* Ripple on click */
+.toolbar-string:active {
+    transition: background 0s;
+    background-color: #888888;
+    background-size: 100%;
+}

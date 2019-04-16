@@ -1,0 +1,100 @@
+
+/* The title bar at the top of the window */
+/* Design based off of the KDE caption bar, sorta
+    mixed with the XFCE buttons */
+header {
+    background-color: var(--colour-fg);
+    height: var(--captionbar-height);
+    left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-self: stretch;
+    text-align: center;
+    align-items: center;
+    z-index: 7;
+}
+
+/* Where user clicks to drag the window */
+#drag-handle {
+    position: absolute;
+    top: 4px; /* Slight offset fixes unresizable top */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-app-region: drag;
+}
+
+/* Caption bar title, centred...*/
+#captionbar-title {
+    margin: auto;
+    pointer-events: none;
+    text-align: center;
+    /* 18px(wid) * 3 + 5px(right-margin) * 3 */
+    padding-left: 69px;
+}
+
+/* Buttons on the caption bar */
+.btn_caption {
+    width: 18px;
+    height: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    z-index: 10;
+
+    -webkit-app-region: none;
+}
+
+/* Close button */
+#btn-caption-close {
+    transition: background-color 200ms;
+    background: rgba(200, 200, 200, 1.0);
+    border-radius: 50%;
+}
+
+#btn-caption-close:hover {
+    transition: background-color 200ms;
+    background-color: #ff6c82;
+}
+
+.btn_caption_alt {
+    transition: background-color 200ms;
+    background: rgba(200, 200, 200, 0.0);
+    border-radius: 50%;
+}
+
+.btn_caption_alt:active {
+    transition: background-color 200ms;
+    background: rgba(150, 250, 150, 1.0);
+}
+
+.btn_caption_alt:hover {
+    transition: background-color 200ms;
+    background: rgba(200, 200, 200, 1.0);
+}
+
+/* Invert icon on hover */
+.btn_caption_alt:hover > .btn-caption-icon {
+    transition: filter 200ms;
+    filter: invert(100%);
+}
+
+/* For button icons */
+.btn-caption-icon {
+    z-index: 15;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    /* For un-hovering of alt buttons */
+    transition: filter 200ms;
+    filter: invert(0%);
+}

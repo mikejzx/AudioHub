@@ -1,0 +1,17 @@
+
+/* Contains a collection of tracklist-items */
+.tracklist {
+    top: var(--captionbar-height);
+    bottom: var(--ctrlbar-height);
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    position: absolute;
+}
+
+.tracklist-item {
+    width: auto;
+    height: var(--tracklist-density);
+    background-color: var(--colour-tracklist-item);
+    border-left: 1px solid var(--colour-tracklist-item-border);
+}

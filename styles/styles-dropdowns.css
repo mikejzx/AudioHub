@@ -1,0 +1,81 @@
+
+/*
+    Very useful:
+    https://www.cssscript.com/creating-popup-dropdowns-with-javascript-and-css3/
+*/
+
+.dropdown-btn {
+    vertical-align: middle;
+}
+
+.dropdown-btn.dropdown-open + .dropdown-list {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown {
+    position: relative;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.dropdown > .dropdown-list {
+    position: absolute;
+    z-index: 22;
+    top: 50%; /* ! */
+    left: 10%; /* ! */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    opacity: 0.0;
+    visibility: hidden;
+    transition: all 0.35s ease;
+}
+
+.dropdown > .dropdown-list.top {
+    align-items: flex-start;
+    transform-origin: 50% 0;
+}
+
+.dropdown > .dropdown-list.left {
+    justify-content: flex-start;
+}
+
+.dropdown > .dropdown-list.bottom {
+    align-items: flex-end;
+    transform-origin: 50% 100%;
+}
+
+.dropdown > .dropdown-list.right {
+    justify-content: flex-end;
+}
+
+.dropdown > .dropdown-list > ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #222;
+    box-shadow: 1px 1px 2px #000;
+    border-radius: 3px;
+}
+
+.dropdown > .dropdown-list > ul li {
+    padding: 5px;
+    margin: .25em;
+    width: 120px;
+    height: fit-content;
+    cursor: pointer;
+    transition: background 0.35s ease;
+    text-align: left;
+}
+
+.dropdown > .dropdown-list > ul li:hover {
+    background: rgba(0, 0, 0, 0.07);
+}

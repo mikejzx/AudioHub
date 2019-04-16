@@ -1,0 +1,23 @@
+{
+  "name": "audioplayerjs",
+  "version": "0.0.1",
+  "description": "An audio player built with the Electron Framework",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikejzx/AudioPlayerJS.git"
+  },
+  "author": "mikejzx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikejzx/AudioPlayerJS/issues"
+  },
+  "homepage": "https://github.com/mikejzx/AudioPlayerJS#readme",
+  "dependencies": {
+    "electron": "^4.1.4",
+    "jsmediatags": "^3.8.1"
+  }
+}

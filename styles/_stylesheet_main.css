@@ -1,0 +1,123 @@
+
+/* Define global window properties */
+html {
+    /* Common variables */
+    --captionbar-height: 30px;
+    --ctrlbar-height: 80px;
+    --tracklist-density: 30px;
+
+    /* Dark theme */
+    --colour-fg: #151515;
+    --colour-bg: #0a0a0a;
+    --colour-border: #000;
+    --text-colour: #dddddd;
+    --colour-tracklist-item: #111111;
+    --colour-tracklist-item-border: #000;
+
+    /* Light theme (Not 100% supported yet) 
+    --colour-fg: #cccccc;
+    --colour-bg: #bbbbbb;
+    --text-colour: #444444;*/
+
+    background-color: var(--colour-bg);
+
+    /* Global text properties. */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: var(--text-colour);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0, 0.2);
+
+    /* Don't allow user to highlight anything */
+    -moz-user-select: none; /* For firefox testing */
+    user-select: none;
+}
+
+/* THe bottom control bar is where the main controls
+such as the play/pause buttons are and volume ctrls.*/
+#ctrl-bar-bottom {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--ctrlbar-height);
+    position: absolute;
+    /*background-color: var(--colour-fg);*/
+    text-align: center;
+
+    /* Centre child elements */
+    display: flex;
+    align-items: center;
+
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+}
+
+/* Contains a blurred cover */
+#ctrl-bar-bottom-cover {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+
+    /* 'Acrylic' features */
+    overflow: hidden;
+}
+
+/* Pseudo-style for blur effect ('acrylic')*/
+#ctrl-bar-bottom-cover::before {
+    filter: blur(12px);
+    opacity: 1.0;
+    z-index: 1;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 98%;
+    background-color: var(--colour-fg); /* Clear colour */
+    background-image: none;
+    /*background-image: url("../img/album-default.png");*/
+    /*background-image: url("https://avatars1.githubusercontent.com/u/42143005"); For testing*/
+
+    -webkit-transition: background-image 2.0s;
+    transition: background-image 2.0s;
+}
+
+/* Another pseudo-style. This adds noise */
+#ctrl-bar-bottom-cover::after {
+    content: "";
+    position: absolute;
+    opacity: 0.5;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    background: var(--colour-fg);
+    border: 1px solid #fff;
+    background-image: var(--noise);
+}
+
+/* Container for bottom ctrl bar buttons */
+#btm_btn_container {
+    margin: auto;
+    width: 250px;
+    height: 30px;
+    margin: auto;
+}
+
+/* This class defines the buttons at the bottom control bar */
+.btn_btm_ctrl {
+    height: inherit;
+}
+
+/* The label for the currently playing song*/
+#track-info {
+    position: absolute;
+    margin-left: 30px;
+    text-align: left;
+}

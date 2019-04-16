@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="./styles/styles-precompute.css"/>
+        <link rel="stylesheet" href="./styles/_stylesheet_main.css"/>
+        <link rel="stylesheet" href="./styles/styles-captionbar.css"/>
+        <link rel="stylesheet" href="./styles/styles-toolbar.css"/>
+        <link rel="stylesheet" href="./styles/styles-dropdowns.css"/>
+        <link rel="stylesheet" href="./styles/styles-queue.css"/>
+
+        <!-- Main audio player -->
+        <!-- Src is set from audiohandler.js -->
+        <!-- (Be sure to keep initialised before the javascripts) -->
+        <audio id="audio_player"></audio>
+
+        <!-- JavaScripts -->
+        <script type="text/javascript" src="./javascript/lib/pseudostyles.js"></script>
+        <script type="text/javascript" src="./javascript/audiohandler.js"></script>
+        <script type="text/javascript" src="./javascript/dropdowns.js"></script>
+        <script type="text/javascript" src="./javascript/jsmain.js"></script>
+
+        <title>AudioPlayerJS</title>
+    </head>
+    <body>
+        <!-- Caption bar -->
+        <header>
+            <!-- Draggable caption bar content -->
+            <div id="drag-handle"></div>
+
+            <!-- Window control buttons -->
+            <div class="btn_caption" id="btn-caption-close" onclick="onWindowClose()">
+                <div class="btn-caption-icon" style="background-image: url('./img/btn-close.png')"></div>
+            </div>
+            <div class="btn_caption btn_caption_alt" onclick="onWindowRestore()">
+                <div class="btn-caption-icon" style="background-image: url('./img/btn-max.png')"></div>
+            </div>
+            <div class="btn_caption btn_caption_alt" onclick="onWindowMinimise()">
+                <div class="btn-caption-icon" style="background-image: url('./img/btn-min.png')"></div>
+            </div>
+        
+            <!-- Be sure to change this to the title if the title changes ! -->
+            <div id="captionbar-title">AudioPlayerJS</div>
+
+            <!-- Toolbar/menu
+                If this gets larger in future, possibly move down below the caption bar.
+            -->
+            <div id="toolbar-container">
+                <!-- File menu -->
+                <div class="dropdown">
+                    <div class="toolbar-string dropdown-btn">
+                        <span>File</span>
+                    </div>
+                    <div class="dropdown-list">
+                        <ul>
+                            <li onclick="openFileDialog ()">Open...</li>
+                            <li>Save as playlist</li>
+                            <li onclick="onWindowClose()">Exit</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Playback menu -->
+                <div class="dropdown">
+                    <div class="toolbar-string dropdown-btn">
+                        <span>Playback</span>
+                    </div>
+                    <div class="dropdown-list">
+                        <ul>
+                            <li>Start</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Debug menu -->
+                <div class="dropdown">
+                    <div class="toolbar-string dropdown-btn">
+                        <span>Debug</span>
+                    </div>
+                    <div class="dropdown-list">
+                        <ul>
+                            <li onclick="openDevTools()">Developer tools</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Help menu -->
+                <div class="dropdown">
+                    <div class="toolbar-string dropdown-btn">
+                        <span>?</span>
+                    </div>
+                    <div class="dropdown-list">
+                        <ul>
+                            <li>About</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                initialiseDropdowns ();
+            </script>
+        </header>
+
+        <!-- Displays all tracks currently in the queue -->
+        <div class="tracklist" id="tracklist-main">
+            <!-- Test item -->
+            <div class="tracklist-item">
+                Untitled - Unknown Artist
+                <!-- W.I.P. ALBUM ART, ETC, DIVIDE SECTIONS -->
+            </div>
+        </div>
+
+        <!-- Main control bar (bottom) -->
+        <div id="ctrl-bar-bottom">
+            <div id="ctrl-bar-bottom-cover" style="z-index: -1;"></div>
+            <div id="track-info">
+                <a id="track-title">Track title</a><br>
+                <a id="track-artist">Artist name</a>
+            </div>
+            <div id="btm_btn_container">
+                <!-- TODO: GIVE THESE BUTTONS IMAGES ----------------------------->
+                <input type="submit" value="Prev" class="btn_btm_ctrl" onclick="trackPrevious()"/>
+                <input type="submit" value="Play" class="btn_btm_ctrl" onclick="trackPlayPause()" id="btn_playpause"/>
+                <input type="submit" value="Next" class="btn_btm_ctrl" onclick="trackNext()"/>
+            </div>
+        </div>
+
+        <!-- Window Borders -->
+        <!-- Left -->
+        <div style="left: 0; bottom: 0; top: 0; width: 1px; background: var(--colour-border); position: absolute; z-index: 20;"></div>
+        <!-- Right -->
+        <div style="right: 0; bottom: 0; top: 0; width: 1px; background: var(--colour-border); position: absolute; z-index: 20;"></div>
+        <!-- Bottom -->
+        <div style="left: 0; bottom: 0; right: 0; height: 1px; background: var(--colour-border); position: absolute; z-index: 20;"></div>
+        <!-- Top -->
+        <div style="left: 0; top: 0; right: 0; height: 1px; background: var(--colour-border); position: absolute; z-index: 20;"></div>
+    </body>
+</html>
