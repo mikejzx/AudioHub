@@ -22,7 +22,7 @@
         <script type="text/javascript" src="./javascript/dropdowns.js"></script>
         <script type="text/javascript" src="./javascript/jsmain.js"></script>
 
-        <title>AudioPlayerJS</title>
+        <title>AudioHub</title>
     </head>
     <body>
         <!-- Caption bar -->
@@ -42,7 +42,7 @@
             </div>
         
             <!-- Be sure to change this to the title if the title changes ! -->
-            <div id="captionbar-title">AudioPlayerJS</div>
+            <div id="captionbar-title">AudioHub</div>
 
             <!-- Toolbar/menu
                 If this gets larger in future, possibly move down below the caption bar.
@@ -105,12 +105,19 @@
 
         <!-- Displays all tracks currently in the queue -->
         <div class="tracklist" id="tracklist-main">
-            <!-- Test item -->
-            <div class="tracklist-item">
-                Untitled - Unknown Artist
-                <!-- W.I.P. ALBUM ART, ETC, DIVIDE SECTIONS -->
+            <div id="tracklist-nofiles">
+                <br>No songs currently in queue.<br><br>Goto the 'File' menu to load tracks or playlists.
             </div>
+            <!-- Test items 
+            <div class="tracklist-item">
+                <div class="tracklist-item-cover"></div>
+                <a class="tracklist-item-title">Untitled</a>
+                <a class="tracklist-item-artist">Unknown artist</a>
+                <a class="tracklist-item-filename">file.mp3</a>
+            </div>-->
         </div>
+
+        <!-- TODO::ALBUM ART IN CONTROL BAR! -->
 
         <!-- Main control bar (bottom) -->
         <div id="ctrl-bar-bottom">

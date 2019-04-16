@@ -18,6 +18,7 @@
   "homepage": "https://github.com/mikejzx/AudioPlayerJS#readme",
   "dependencies": {
     "electron": "^4.1.4",
-    "jsmediatags": "^3.8.1"
+    "jsmediatags": "^3.8.1",
+    "npm": "^6.9.0"
   }
 }

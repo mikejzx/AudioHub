@@ -4,7 +4,8 @@ html {
     /* Common variables */
     --captionbar-height: 30px;
     --ctrlbar-height: 80px;
-    --tracklist-density: 30px;
+    --tracklist-density: 80px;
+    --tracklist-cover-size: calc(var(--tracklist-density) / 1.2);
 
     /* Dark theme */
     --colour-fg: #151515;
@@ -13,6 +14,8 @@ html {
     --text-colour: #dddddd;
     --colour-tracklist-item: #111111;
     --colour-tracklist-item-border: #000;
+    --colour-tracklist-artist: #666;
+    --colour-tracklist-title: #fff;
 
     /* Light theme (Not 100% supported yet) 
     --colour-fg: #cccccc;
