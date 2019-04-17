@@ -1,6 +1,6 @@
 
 const jsmediatags = require("jsmediatags");
-const defaultImgPath = "url(\"./img/albumart-default.png\")";
+const defaultImgPath = "\"./img/albumart-default.png\"";
 var playing = false; // CLick event in jsmain.js
 var opened = false;
 var audio = document.getElementById("audio_player");
