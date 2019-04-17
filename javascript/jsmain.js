@@ -3,6 +3,12 @@ const electron = require('electron');
 const win = electron.remote.getCurrentWindow();
 const dialog = electron.remote.dialog;
 
+// When the window completes loading
+function windowLoaded () {
+    console.log("window loaded");
+    slidersInitialise(); // in sliders.js
+}
+
 // For window close button
 function onWindowClose() { 
     console.log('window close');

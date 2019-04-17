@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="./styles/styles-toolbar.css"/>
         <link rel="stylesheet" href="./styles/styles-dropdowns.css"/>
         <link rel="stylesheet" href="./styles/styles-queue.css"/>
+        <link rel="stylesheet" href="./styles/styles-sliders.css"/>
 
         <!-- Main audio player -->
         <!-- Src is set from audiohandler.js -->
@@ -19,12 +20,13 @@
         <!-- JavaScripts -->
         <script type="text/javascript" src="./javascript/lib/methods.js"></script>
         <script type="text/javascript" src="./javascript/audiohandler.js"></script>
+        <script type="text/javascript" src="./javascript/sliders.js"></script>
         <script type="text/javascript" src="./javascript/dropdowns.js"></script>
         <script type="text/javascript" src="./javascript/jsmain.js"></script>
 
         <title>AudioHub</title>
     </head>
-    <body>
+    <body onload="windowLoaded()">
         <!-- Caption bar -->
         <header>
             <!-- Draggable caption bar content -->
@@ -121,16 +123,25 @@
 
         <!-- Main control bar (bottom) -->
         <div id="ctrl-bar-bottom">
+            <!-- Track brief -->
             <div id="ctrl-bar-bottom-cover" style="z-index: -1;"></div>
             <div id="track-info">
                 <a id="track-title">Track title</a><br>
                 <a id="track-artist">Artist name</a>
             </div>
+            <!-- Buttons -->
             <div id="btm_btn_container">
                 <!-- TODO: GIVE THESE BUTTONS IMAGES ----------------------------->
                 <input type="submit" value="Prev" class="btn_btm_ctrl" onclick="trackPrevious()"/>
                 <input type="submit" value="Play" class="btn_btm_ctrl" onclick="trackPlayPause()" id="btn_playpause"/>
                 <input type="submit" value="Next" class="btn_btm_ctrl" onclick="trackNext()"/>
+            </div>
+            <!-- Volume slider -->
+            <div id="slider-volume" class="slider-bar">
+                <div class="slider-progress">
+
+                </div>
+                <!-- TODO: Slider thumb -->
             </div>
         </div>
 

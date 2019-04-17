@@ -18,6 +18,9 @@ html {
     --colour-tracklist-item-border: #000;
     --colour-tracklist-artist: #666;
     --colour-tracklist-title: #fff;
+    --colour-slider-bg: #222;
+    --colour-slider-fg: #ddd;
+    --colour-slider-border: #444;
 
     /* Light theme (Not 100% supported yet) 
     --colour-fg: #cccccc;
