@@ -1,7 +1,7 @@
 
 function slidersInitialise() {
-    var sliders = document.getElementsByClassName("slider-bar");
-    for (var i = 0; i < sliders.length; i++) {
-
+    var sliderVolume = document.getElementById("slider-volume-ctrl");
+    sliderVolume.oninput = function () {
+        audio.volume = this.value / 100;
     }
 }

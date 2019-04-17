@@ -1,0 +1,46 @@
+
+/* For sliders such as the volume bar and seek bar. */
+
+#slider-volume {
+    right: 30px;
+    bottom: 30px;
+}
+
+.slider-bar {
+    position: absolute;
+    width: 100px;
+    height: 6px !important;
+    background-color: var(--colour-slider-bg);
+    border-radius: 3px;
+    border: 1px solid var(--colour-slider-border);
+    box-shadow: 2px 2px 2px #000;
+}
+
+/* Container for the progress bar 
+ - (Hides overflown content) */
+.slider-bar-progcont {
+    border-radius: 3px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+/* use transform: translateX(0-100%) to move*/
+.slider-progress {
+    transform: translateX(-90%);
+    width: 100%;
+    height: 100%;
+    background-color: var(--colour-slider-fg);
+}
+
+/* Thumb/handle to control the slider */
+/* Use left: x% to control */
+.slider-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #000;
+    position: absolute;
+    top: -5px;
+}
