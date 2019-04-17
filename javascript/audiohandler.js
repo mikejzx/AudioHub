@@ -42,7 +42,7 @@ function audioOpen (fileName) {
                 title: "Untitled",
                 artist: "Unknown Artist",
                 album: "Unknown Album",
-                image: null,
+                image: defaultImgPath,
                 year: 0
                 // TODO: song length, etc
             });
@@ -107,16 +107,8 @@ function audioPause () {
 }
 
 function addToQueue(a) {
+    // Push to list
     queue.push(a);
-
-    // Remove 'no tracks' label if needed
-    if (queue.length == 0) {
-        document.getElementById("tracklist-nofiles").setAttribute("class", "");
-    }
-    else {
-        // Disable
-        document.getElementById("tracklist-nofiles").setAttribute("class", "tracklist-nofiles-disable");
-    }
 
     // Create new node to add to the display
     var list = document.getElementById("tracklist-main");
@@ -124,6 +116,7 @@ function addToQueue(a) {
     // Create the node
     var e = document.createElement("div");
     e.setAttribute("class", "tracklist-item");
+    e.setAttribute("onclick", "queueIdxChange(" + (queue.length - 1) + ")");
     
     // Create sub elements
     // Cover
@@ -152,12 +145,37 @@ function addToQueue(a) {
     // Display it
     list.appendChild(e);
 
+   
+    if (queue.length < 2) {
+        // Force update queue index to zero if only in list
+        _queueIdxChange(0, true);
+    }
+    // Remove 'no tracks' label if needed
+    if (queue.length > 0) {
+        document.getElementById("tracklist-nofiles").setAttribute("class", "tracklist-nofiles-disable");
+    }
+    else {
+        document.getElementById("tracklist-nofiles").setAttribute("class", "");
+    }
+
     // Queue was changed
     queueUpdated();
 }
 
+function queueIdxChange(newIdx) {
+    _queueIdxChange(newIdx, false);
+}
+
 // Change of queue indexNodeProject
-function queueIdxChange(newidx) {
+function _queueIdxChange(newidx, force) {
+    if (newidx == queueIdx && !force) {
+        console.log("already at idx " + newidx);
+        return;
+    }
+    if (force) {
+        console.log("forcing idx to " + newidx);
+    }
+
     var oldidx = queueIdx;
     queueIdx = newidx;
     currentSongUpdate();
@@ -195,10 +213,9 @@ function currentSongUpdate() {
     document.getElementById("track-artist").innerHTML = "by " + cur.artist;
 
     // Set player background image to the cover art.
-    var imgUrl = cur.img;
-    var img = "url(" + cur.image + ")";
-    // Check lengths first to avoid the string comparison as im not sure how expensive it is :D
-    if (img.length != defaultImgPath.length && img != defaultImgPath) {
+    var imgUrl = cur.image;
+    var img = "url(" + imgUrl + ")";
+    if (imgUrl != defaultImgPath) {
         var b64 = img + "!important";
         document.getElementById("ctrl-bar-bottom-cover").pseudoStyle("before", "background-image", b64);
     }
@@ -206,7 +223,7 @@ function currentSongUpdate() {
         console.log("null image");
         // Set player bg to nothing
         // url(./img/albumart-default.png) for actual cover
-        document.getElementById("ctrl-bar-bottom-cover").pseudoStyle("before", "background-image", "none");
+        document.getElementById("ctrl-bar-bottom-cover").pseudoStyle("before", "background-image", "none !important");
     }
 }
 

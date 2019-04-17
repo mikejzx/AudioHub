@@ -4,6 +4,11 @@
     https://www.cssscript.com/creating-popup-dropdowns-with-javascript-and-css3/
 */
 
+/* Force cursor to be regular on hover */
+.dropdown > .dropdown-list { cursor: default !important; }
+.dropdown > .dropdown-list ul{ cursor: default !important; }
+.dropdown > .dropdown-list ul li { cursor: default !important; }
+
 .dropdown-btn {
     vertical-align: middle;
 }
