@@ -21,6 +21,8 @@ html {
     --colour-slider-bg: #222;
     --colour-slider-fg: #ddd;
     --colour-slider-border: #444;
+    --colour-slider-thumb: #ccc;
+    --colour-slider-thumb-hover: #999;
 
     /* Light theme (Not 100% supported yet) 
     --colour-fg: #cccccc;

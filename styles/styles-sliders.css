@@ -1,4 +1,10 @@
 
+/*
+    Styles for the sliders (volume, seek, etc)
+    These don't seem to get applied in mozilla currently,
+    but do work when launching the actual application.
+*/
+
 #slider-volume {
     right: 30px;
     bottom: 30px;
@@ -20,6 +26,28 @@
     background: var(--colour-slider-bg);
     box-shadow: 1px 1px 2px #000;
     position: absolute;
+
+    border-radius: 3px;
+    border: 1px solid var(--colour-slider-border);
+}
+
+.slider-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: background-color 0.1s;
+    background-color: var(--colour-slider-thumb);
+    border: 1px solid #000;
+}
+
+.slider-bar::-webkit-slider-thumb:hover {
+    transition: background-color 0.1s;
+    background-color: var(--colour-slider-thumb-hover);
 }
 
 .slider-container {
