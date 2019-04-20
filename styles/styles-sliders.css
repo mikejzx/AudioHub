@@ -5,9 +5,18 @@
     but do work when launching the actual application.
 */
 
+#slider-playback {
+    right: 0;
+    left: 0;
+    bottom: 30px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
 #slider-volume {
     right: 30px;
     bottom: 30px;
+    width: 100px;
 }
 
 .slider-bar {
@@ -52,6 +61,5 @@
 
 .slider-container {
     position: absolute;
-    width: 100px;
     height: 6px !important;
 }

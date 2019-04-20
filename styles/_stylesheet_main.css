@@ -3,7 +3,7 @@
 html {
     /* Common variables */
     --captionbar-height: 30px;
-    --ctrlbar-height: 80px;
+    --ctrlbar-height: 90px;
     --tracklist-density: 80px;
     --tracklist-cover-size: calc(var(--tracklist-density) / 1.2);
 
@@ -118,6 +118,7 @@ such as the play/pause buttons are and volume ctrls.*/
     width: 250px;
     height: 30px;
     margin: auto;
+    margin-top: 10px;
 }
 
 /* This class defines the buttons at the bottom control bar */
