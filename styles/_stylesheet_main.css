@@ -11,18 +11,23 @@ html {
     --colour-fg: #151515;
     --colour-bg: #0a0a0a;
     --colour-border: #000;
-    --text-colour: #dddddd;
+    --colour-text: #dddddd;
+
     --colour-tracklist-item: #111111;
     --colour-tracklist-item-hover: #1a1a1a;
     --colour-tracklist-item-playing: #094455;
     --colour-tracklist-item-border: #000;
     --colour-tracklist-artist: #666;
     --colour-tracklist-title: #fff;
+
     --colour-slider-bg: #222;
-    --colour-slider-fg: #ddd;
+    --colour-slider-fg: #489; /* Fill colour */ 
     --colour-slider-border: #444;
     --colour-slider-thumb: #ccc;
     --colour-slider-thumb-hover: #999;
+    --colour-slider-disabled-bg: #333;
+    --colour-slider-disabled-border: #323232;
+    --colour-slider-disabled-thumb: #444;
 
     /* Light theme (Not 100% supported yet) 
     --colour-fg: #cccccc;
@@ -34,7 +39,7 @@ html {
     /* Global text properties. */
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    color: var(--text-colour);
+    color: var(--colour-text);
     text-shadow: 1px 1px 2px rgb(0, 0, 0, 0.2);
 
     /* Don't allow user to highlight anything */

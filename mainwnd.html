@@ -131,9 +131,11 @@
             </div>
             <!-- Progress of the current track being played -->
             <div id="slider-playback" class="slider-container">
-                <input type="range" min="0" max="100" value="100" id="slider-playback-ctrl" class="slider-bar">
-
-                </input>
+                <input type="range" min="0" max="100" value="0" id="slider-playback-ctrl" class="slider-bar" disabled/>
+                <!-- Coloured Fill in for slider -->
+                <div class="slider-fill"></div>
+                <!-- Custom thumb to keep above fill. (Real one is set invisible) -->
+                <div class="slider-thumb"></div>
             </div>
             <!-- Buttons -->
             <div id="btm_btn_container">
@@ -144,9 +146,9 @@
             </div>
             <!-- Volume slider -->
             <div id="slider-volume" class="slider-container">
-                <input type="range" min="0" max="100" value="100" id="slider-volume-ctrl" class="slider-bar">
-
-                </input>
+                <input type="range" min="0" max="100" value="80" id="slider-volume-ctrl" class="slider-bar"/>
+                <div class="slider-fill"></div>
+                <div class="slider-thumb"></div>
             </div>
         </div>
 
