@@ -13,6 +13,11 @@
     margin-right: 200px;
 }
 
+/* Temporarily forced for now */
+#slider-playback > .slider-bar {
+    width: 100% !important;
+}
+
 #slider-volume {
     right: 30px;
     bottom: 30px;
@@ -25,7 +30,7 @@
     border: 1px solid var(--colour-slider-disabled-border);
 }
 
-.slider-bar:disabled > .slider-thumb {
+.slider-bar:disabled ~ .slider-thumb {
     transition: background-color 0.1s, opacity 0.1s;
     background-color: var(--colour-slider-disabled-thumb) !important;
     opacity: 0 !important;
@@ -69,7 +74,6 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    transition: background-color 0.1s;
     background-color: var(--colour-slider-thumb);
     border: 1px solid #000;
     position: absolute;
@@ -79,6 +83,13 @@
     margin-left: -3px;
     margin-right: 3px;
     margin-bottom: 3px;
+
+    transition: background-color 500ms;
+}
+
+.slider-bar:hover ~ .slider-thumb {
+    transition: background-color 100ms;
+    background-color: var(--colour-slider-thumb-hover);
 }
 
 .slider-container {

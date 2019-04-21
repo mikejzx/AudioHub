@@ -12,14 +12,13 @@ html {
     --colour-bg: #0a0a0a;
     --colour-border: #000;
     --colour-text: #dddddd;
-
+    --colour-dropdown-bg: #222;
     --colour-tracklist-item: #111111;
     --colour-tracklist-item-hover: #1a1a1a;
     --colour-tracklist-item-playing: #094455;
     --colour-tracklist-item-border: #000;
     --colour-tracklist-artist: #666;
     --colour-tracklist-title: #fff;
-
     --colour-slider-bg: #222;
     --colour-slider-fg: #489; /* Fill colour */ 
     --colour-slider-border: #444;
@@ -32,7 +31,23 @@ html {
     /* Light theme (Not 100% supported yet) 
     --colour-fg: #cccccc;
     --colour-bg: #bbbbbb;
-    --text-colour: #444444;*/
+    --colour-border: #888;
+    --colour-text: #222;
+    --colour-dropdown-bg: #ccc;
+    --colour-tracklist-item: #888;
+    --colour-tracklist-item-hover: #7f7f7f;
+    --colour-tracklist-item-playing: #094455;
+    --colour-tracklist-item-border: #000;
+    --colour-tracklist-artist: #666;
+    --colour-tracklist-title: #fff;
+    --colour-slider-bg: #888;
+    --colour-slider-fg: #489;
+    --colour-slider-border: #444;
+    --colour-slider-thumb: #ccc;
+    --colour-slider-thumb-hover: #999;
+    --colour-slider-disabled-bg: #333;
+    --colour-slider-disabled-border: #323232;
+    --colour-slider-disabled-thumb: #444;*/
 
     background-color: var(--colour-bg);
 

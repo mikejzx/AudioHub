@@ -59,6 +59,7 @@
                         <ul>
                             <li onclick="openFileDialog ()">Open...</li>
                             <li>Save as playlist</li>
+                            <li>Preferences</li>
                             <li onclick="onWindowClose()">Exit</li>
                         </ul>
                     </div>
@@ -131,7 +132,7 @@
             </div>
             <!-- Progress of the current track being played -->
             <div id="slider-playback" class="slider-container">
-                <input type="range" min="0" max="100" value="0" id="slider-playback-ctrl" class="slider-bar" disabled/>
+                <input type="range" min="0" max="1000" value="0" id="slider-playback-ctrl" class="slider-bar" disabled/>
                 <!-- Coloured Fill in for slider -->
                 <div class="slider-fill"></div>
                 <!-- Custom thumb to keep above fill. (Real one is set invisible) -->

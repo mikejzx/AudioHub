@@ -11,6 +11,14 @@ var queueIdx = 0;
 // TODO: Prevent duplicate blobs
 // Check if url is same and if so point to the originally-generated blob
 
+function setOpened(t) {
+    opened = t;
+
+    // Set playback bar state based on t
+    var pbSlider = document.getElementById("slider-playback-ctrl");
+    pbSlider.disabled = t ^ true;
+}
+
 // Open a file
 function audioOpen (fileName) {
     // Read ID3 tags
@@ -18,7 +26,7 @@ function audioOpen (fileName) {
         .setTagsToRead(["title", "artist", "album", "picture", "year"])
         .read({
         onSuccess: function(tag) {
-            opened = true;
+            setOpened(true);
             var tags = tag.tags;
 
             console.log("Successfully opened audio, tit:" + tags.title + " art:" + tags.artist + " alb:" + tags.album);

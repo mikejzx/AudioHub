@@ -3,6 +3,8 @@ const electron = require('electron');
 const win = electron.remote.getCurrentWindow();
 const dialog = electron.remote.dialog;
 
+setInterval(sliderCallback, 100);
+
 // When the window completes loading
 function windowLoaded () {
     console.log("window loaded");
