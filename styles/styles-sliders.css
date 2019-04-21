@@ -42,7 +42,7 @@
     left: 0;
     right: 0;
     
-    width: 100%;
+    width: 110%; /* 110% seems to fix problem where thumb was moving too much. */
     height: 100%;
     background: var(--colour-slider-bg);
     box-shadow: 1px 1px 2px #000;
