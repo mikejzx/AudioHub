@@ -149,6 +149,19 @@ such as the play/pause buttons are and volume ctrls.*/
 /* The label for the currently playing song*/
 #track-info {
     position: absolute;
-    margin-left: 30px;
+    margin-left: calc(30px + var(--tracklist-cover-size));
     text-align: left;
+}
+
+/* Album cover of the track displayed in the brief */
+#track-cover {
+    position: absolute;
+    width: var(--tracklist-cover-size);
+    height: var(--tracklist-cover-size);
+    background-image: url("../img/albumart-default.png");
+    margin-left: 16px;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }

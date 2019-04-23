@@ -223,8 +223,8 @@ function currentSongUpdate() {
     // Set player background image to the cover art.
     var imgUrl = cur.image;
     var img = "url(" + imgUrl + ")";
+    var b64 = img + "!important";
     if (imgUrl != defaultImgPath) {
-        var b64 = img + "!important";
         document.getElementById("ctrl-bar-bottom-cover").pseudoStyle("before", "background-image", b64);
     }
     else {
@@ -233,6 +233,8 @@ function currentSongUpdate() {
         // url(./img/albumart-default.png) for actual cover
         document.getElementById("ctrl-bar-bottom-cover").pseudoStyle("before", "background-image", "none !important");
     }
+    // Set the current cover art
+    document.getElementById("track-cover").setAttribute("style", "background-image: " + b64);
 }
 
 // Title should be formatted as:
