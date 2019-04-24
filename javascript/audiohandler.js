@@ -7,6 +7,7 @@ var audio = document.getElementById("audio_player");
 var queue = []; // All tracks in the queue
 var queueDisplays = []; // Every track's visual display
 var queueIdx = 0;
+var playState = "Play";
 
 // TODO: Prevent duplicate blobs
 // Check if url is same and if so point to the originally-generated blob
@@ -106,12 +107,18 @@ function dataToBlobURL (url) {
 
 // Play the audio
 function audioPlay() {
+    playState = "Pause";
+    document.getElementById('btn_playpause').setAttribute('value', playState);
     audio.play();
+    playing = true;
 }
 
 // Pause hte audio
 function audioPause () {
+    playState = "Play";
+    document.getElementById('btn_playpause').setAttribute('value', playState);
     audio.pause();
+    playing = false;
 }
 
 function addToQueue(a) {

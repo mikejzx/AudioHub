@@ -7,9 +7,9 @@ let mainwnd;
 
 app.on('ready', () => {
     mainwnd = new BrowserWindow({
-        width: 512,
-        height: 384,
-        minWidth: 400,
+        width: 800,
+        height: 512,
+        minWidth: 800,
         minHeight: 400,
         frame: false,
         // Fixed missing shadow on Linux

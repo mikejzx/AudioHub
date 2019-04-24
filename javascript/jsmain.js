@@ -53,22 +53,33 @@ function trackPlayPause() {
     }
 
     playing ^= true;
-    var state = "Play";
     if (playing) {
         console.log("track play");
-        state = "Pause";
-
         audioPlay();
     }
     else {
         console.log("track pause");
         audioPause();
     }
-    document.getElementById('btn_playpause').setAttribute('value', state);
 }
 
 // On click of 'previous' button
+// (This will only goto the previous track
+// If the current is less than 3 seconds in,
+// any more and it will just restart it.)
 function trackPrevious() {
+    // Previous if less than 3
+    if (audio.currentTime < 3) {
+        trackPreviousActual();
+    }
+    else {
+        // Replay current track
+        audio.currentTime = 0;
+    }
+}
+
+// Actually go back a track.
+function trackPreviousActual() {
     var i = queueIdx - 1;
     if (i > -1) {
         queueIdxChange(i);
@@ -76,6 +87,16 @@ function trackPrevious() {
     }
     else {
         console.log("no previous songs");
+        // Goto end of queue if more than 1 song
+        if (queue.length > 1) {
+            queueIdxChange(queue.length - 1);
+        }
+        else {
+            // TODO: REPLAY IF THE REPLAY/LOOP OPTION IS SELECTED!!! -------------------
+            // For now just stop the only song
+            audio.currentTime = 0;
+            audioPause();
+        }
     }
 }
 
@@ -90,6 +111,16 @@ function trackNext() {
         console.log("no more songs in queue");
 
         // TODO: Restart if 'repeat queue'
+        if (queue.length > 1) {
+            // Goto start of queue if more than 1 song
+            queueIdxChange(0);
+        }
+        else {
+            // TODO: REPLAY IF THE REPLAY/LOOP OPTION IS SELECTED!!! -------------------
+            // For now just stop the only song
+            audio.currentTime = 0;
+            audioPause();
+        }
     }
 }
 

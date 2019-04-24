@@ -29,6 +29,9 @@
     <body onload="windowLoaded()">
         <!-- Caption bar -->
         <header>
+            <!-- Gradient effect on caption bar -->
+            <div id="header-grad"></div>
+
             <!-- Draggable caption bar content -->
             <div id="drag-handle"></div>
 
@@ -136,8 +139,11 @@
                 <input type="range" min="0" max="1000" value="0" id="slider-playback-ctrl" class="slider-bar" disabled/>
                 <!-- Coloured Fill in for slider -->
                 <div class="slider-fill"></div>
+
                 <!-- Custom thumb to keep above fill. (Real one is set invisible) -->
-                <div class="slider-thumb"></div>
+                <div class="slider-thumb-cont">
+                    <div class="slider-thumb"></div>
+                </div>
             </div>
             <!-- Buttons -->
             <div id="btm_btn_container">
@@ -148,9 +154,12 @@
             </div>
             <!-- Volume slider -->
             <div id="slider-volume" class="slider-container">
+                <a id="slider-volume-label">80%</a>
                 <input type="range" min="0" max="100" value="80" id="slider-volume-ctrl" class="slider-bar"/>
                 <div class="slider-fill"></div>
-                <div class="slider-thumb"></div>
+                <div class="slider-thumb-cont">
+                    <div class="slider-thumb"></div>
+                </div>
             </div>
         </div>
 

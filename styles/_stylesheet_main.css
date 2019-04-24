@@ -6,6 +6,8 @@ html {
     --ctrlbar-height: 90px;
     --tracklist-density: 80px;
     --tracklist-cover-size: calc(var(--tracklist-density) / 1.2);
+    --slider-thumb-size: 16px;
+    --slider-thumb-half: calc(0.5 * var(--slider-thumb-size));
 
     /* Dark theme */
     --colour-fg: #151515;
@@ -22,7 +24,7 @@ html {
     --colour-slider-bg: #222;
     --colour-slider-fg: #489; /* Fill colour */ 
     --colour-slider-border: #444;
-    --colour-slider-thumb: #ccc;
+    --colour-slider-thumb: transparent; /*#ccc;*/
     --colour-slider-thumb-hover: #999;
     --colour-slider-disabled-bg: #333;
     --colour-slider-disabled-border: #323232;
@@ -164,4 +166,17 @@ such as the play/pause buttons are and volume ctrls.*/
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+#header-grad {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: var(--captionbar-height);
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.12) 0%, transparent 30%);
+    z-index: 50;
 }

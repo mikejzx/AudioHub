@@ -9,8 +9,8 @@
     right: 0;
     left: 0;
     bottom: 30px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 270px;
+    margin-right: 270px;
 }
 
 /* Temporarily forced for now */
@@ -22,6 +22,14 @@
     right: 30px;
     bottom: 30px;
     width: 100px;
+}
+
+#slider-volume-label {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
 }
 
 /* Applied to sliders that can't be used */
@@ -47,7 +55,7 @@
     left: 0;
     right: 0;
     
-    width: 110%; /* 110% seems to fix problem where thumb was moving too much. */
+    width: 100%; /* 110% seems to fix problem where thumb was moving too much. */
     height: 100%;
     background: var(--colour-slider-bg);
     box-shadow: 1px 1px 2px #000;
@@ -71,11 +79,11 @@
 
 .slider-thumb {
     pointer-events: none;
-    width: 16px;
-    height: 16px;
+    width: var(--slider-thumb-size);
+    height: var(--slider-thumb-size);
     border-radius: 50%;
     background-color: var(--colour-slider-thumb);
-    border: 1px solid #000;
+    border: 1px solid transparent;
     position: absolute;
     z-index: 5;
 
@@ -84,12 +92,24 @@
     margin-right: 3px;
     margin-bottom: 3px;
 
-    transition: background-color 500ms;
+    transition: background-color 500ms, border-color 500ms;
 }
 
-.slider-bar:hover ~ .slider-thumb {
-    transition: background-color 100ms;
+/* Sortof fixes the thumb bug where it moved too far. 
+    This makes sure both sides are even. */
+.slider-thumb-cont {
+    /*width: calc(100% - var(--slider-thumb-half));*/
+    left: 4px; /* Just a constant that seems to work */
+    right: var(--slider-thumb-half);
+    position: absolute;
+    pointer-events: none;
+}
+
+/* ~ Means same level in this context */
+.slider-bar:hover ~ .slider-thumb-cont > .slider-thumb {
+    transition: background-color 100ms, border-color 100ms;
     background-color: var(--colour-slider-thumb-hover);
+    border-color: #000;
 }
 
 .slider-container {
