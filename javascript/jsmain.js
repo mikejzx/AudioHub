@@ -9,6 +9,7 @@ setInterval(sliderCallback, 100);
 function windowLoaded () {
     console.log("window loaded");
     slidersInitialise(); // in sliders.js
+    initialiseDragDrop (); // in dragdrop.js
 }
 
 // For window close button
