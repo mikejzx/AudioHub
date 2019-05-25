@@ -8,6 +8,7 @@ var queue = []; // All tracks in the queue
 var queueDisplays = []; // Every track's visual display
 var queueIdx = 0;
 var playState = "Play";
+var currentvolume = 0;
 
 // TODO: Prevent duplicate blobs
 // Check if url is same and if so point to the originally-generated blob

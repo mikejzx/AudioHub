@@ -8,10 +8,12 @@ html {
     --tracklist-cover-size: calc(var(--tracklist-density) / 1.2);
     --slider-thumb-size: 16px;
     --slider-thumb-half: calc(0.5 * var(--slider-thumb-size));
+    --visualiser-pt-width: 110px;
 
     /* Dark theme */
     --colour-fg: #151515;
     --colour-bg: #0a0a0a;
+    --colour-shadmain: #000;
     --colour-border: #000;
     --colour-text: #dddddd;
     --colour-dropdown-bg: #222;
@@ -81,6 +83,8 @@ such as the play/pause buttons are and volume ctrls.*/
 
     color: #fff;
     text-shadow: 2px 2px 2px #000;
+
+    box-shadow: 0 -2px 5px var(--colour-shadmain);
 }
 
 /* Contains a blurred cover */
@@ -176,7 +180,9 @@ such as the play/pause buttons are and volume ctrls.*/
     right: 0;
     top: 0;
     height: var(--captionbar-height);
+    /*background-image: linear-gradient(
+        rgba(255, 255, 255, 0.12) 0%, transparent 30%);*/
     background-image: linear-gradient(
-        rgba(255, 255, 255, 0.12) 0%, transparent 30%);
+        rgba(255, 255, 255, 0.06) 0%, transparent 30%, transparent 70%, rgba(32, 32, 32, 0.25) 100%);
     z-index: 50;
 }

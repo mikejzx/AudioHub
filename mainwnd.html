@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="./styles/styles-dropdowns.css"/>
         <link rel="stylesheet" href="./styles/styles-queue.css"/>
         <link rel="stylesheet" href="./styles/styles-sliders.css"/>
+        <link rel="stylesheet" href="./styles/styles-visualiser.css"/>
 
         <!-- Main audio player -->
         <!-- Src is set from audiohandler.js -->
@@ -20,6 +21,7 @@
         <!-- JavaScripts -->
         <script type="text/javascript" src="./javascript/lib/methods.js"></script>
         <script type="text/javascript" src="./javascript/audiohandler.js"></script>
+        <script type="text/javascript" src="./javascript/visualiser.js"></script>
         <script type="text/javascript" src="./javascript/sliders.js"></script>
         <script type="text/javascript" src="./javascript/dropdowns.js"></script>
         <script type="text/javascript" src="./javascript/dragdrop.js"></script>
@@ -124,8 +126,6 @@
             </div>-->
         </div>
 
-        <!-- TODO::ALBUM ART IN CONTROL BAR! -->
-
         <!-- Main control bar (bottom) -->
         <div id="ctrl-bar-bottom">
             <!-- Track brief -->
@@ -153,6 +153,17 @@
                 <input type="submit" value="Play" class="btn_btm_ctrl" onclick="trackPlayPause()" id="btn_playpause"/>
                 <input type="submit" value="Next" class="btn_btm_ctrl" onclick="trackNext()"/>
             </div>
+
+            <!-- Visualiser (TODO: Make optional) -->
+            <div id="visualiser">
+                <div id="vis-left">
+
+                </div>
+                <div id="vis-right">
+                    
+                </div>
+            </div>
+
             <!-- Volume slider -->
             <div id="slider-volume" class="slider-container">
                 <a id="slider-volume-label">80%</a>

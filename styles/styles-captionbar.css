@@ -17,6 +17,8 @@ header {
     text-align: center;
     align-items: center;
     z-index: 7;
+
+    box-shadow: 0 2px 5px var(--colour-shadmain);
 }
 
 /* Where user clicks to drag the window */

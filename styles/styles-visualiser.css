@@ -1,0 +1,41 @@
+
+/* The main visualiser element */
+#visualiser {
+    position: absolute;
+    height: calc(var(--ctrlbar-height) * 0.75);
+    width: var(--visualiser-pt-width);
+    right: 140px;
+}
+
+#vis-left {
+    position: absolute;
+    height: 50%;
+    top: 0;
+    width: 100%;
+}
+
+#vis-right {
+    position: absolute;
+    height: 50%;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Visualiser point for left channel (top visualiser) */
+.visualiser-point-left {
+    position: absolute;
+    display: inline-block;
+    height: 0%;
+    background-color: rgba(255, 255, 255, 0.5);
+    bottom: 0;
+    left: 0;
+}
+
+.visualiser-point-right {
+    position: absolute;
+    display: inline-block;
+    height: 0%;
+    background-color: rgba(255, 255, 255, 0.5);
+    top: 0;
+    left: 0;
+}

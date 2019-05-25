@@ -19,6 +19,7 @@
   "dependencies": {
     "electron": "^4.1.4",
     "jsmediatags": "^3.8.1",
-    "npm": "^6.9.0"
+    "npm": "^6.9.0",
+    "stereo-analyser-node": "^1.0.0"
   }
 }

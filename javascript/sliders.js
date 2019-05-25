@@ -8,6 +8,7 @@ function slidersInitialise() {
         // TODO: Allow user to select a volume 
         // scale curve (linear, logarithmic)
         audio.volume = x * x;
+        currentvolume = audio.volume;
 
         // Style fill-bar
         //var y = (100 * Math.pow(x, 0.75)) + "% !important";

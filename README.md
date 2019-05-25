@@ -8,6 +8,7 @@ as this app would be more portable, practical, versatile, (and easier to write) 
 # Build requirements:
 * Electron framework: `npm install electron --save`
 * jsmediatags (for ID3 reading): `npm install jsmediatags --save`
+* stereo-analyser-node (for the visualiser) `npm install stereo-analyser-node`
 * And ofcourse Node.js with the npm (Node.js package manager). Install with your system's package manager like so, `sudo pacman -S nodejs`, `sudo apt install nodejs`, etc... (npm is installed alongside the 'nodejs' package. If you are building the application from a Windows system, Node.js (with npm included) can be downloaded from <a href="https://nodejs.org/en/">here.</a>)
 <br>
 <hr>
