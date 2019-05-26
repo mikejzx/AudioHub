@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mikejzx/AudioHub#readme",
   "dependencies": {
-    "electron": "^4.1.4",
+    "electron": "^4.2.2",
     "jsmediatags": "^3.8.1",
     "npm": "^6.9.0",
     "stereo-analyser-node": "^1.0.0"

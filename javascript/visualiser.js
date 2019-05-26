@@ -19,6 +19,7 @@ function initialise_vis() {
     
     // Todo: check out analyser options here...
     audioanalyser.fftSize = vptcount * 8;
+    audioanalyser.smoothingTimeConstant = 0.4; // 0.8 is default.
 
     audFreqDataL = new Uint8Array(audioanalyser.frequencyBinCount);
     audFreqDataR = new Uint8Array(audioanalyser.frequencyBinCount);
@@ -52,7 +53,8 @@ function initialise_vis() {
 }
 
 function visualise() {
-    if (audio == null || !playing) {
+    // Will not update if there's not audio, if it's not playing, or if the window is hidden/minimised.
+    if (audio == null || !playing || !win.isVisible()) {
         return; 
     }
 
