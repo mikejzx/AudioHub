@@ -1,7 +1,8 @@
 
 const electron = require('electron');
-const win = electron.remote.getCurrentWindow();
-const dialog = electron.remote.dialog;
+const remote = electron.remote;
+const win = remote.getCurrentWindow();
+const dialog = remote.dialog;
 
 setInterval(sliderCallback, 100);
 
@@ -45,6 +46,10 @@ function onWindowMinimise() {
 
 function openDevTools() {
     win.openDevTools();
+}
+
+function openPreferences() {
+    remote.getGlobal("wndshow_pref")();
 }
 
 // On click of the play/pause button

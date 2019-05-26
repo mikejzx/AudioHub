@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="./styles/styles-precompute.css"/>
+        <link rel="stylesheet" href="./styles/_stylesheet_main.css"/>
+        <link rel="stylesheet" href="./styles/styles-captionbar.css"/>
+        <link rel="stylesheet" href="./styles/styles-toolbar.css"/>
+
+        <!-- JavaScripts -->
+        <script type="text/javascript" src="./javascript/lib/html-import.js"></script>
+        <script type="text/javascript" src="./javascript/jsprefs.js"></script>
+    
+        <title>Preferences :: AudioHub</title>
+    </head>
+    <body onload="onWindowLoad_pref()">
+        <header>
+            <!-- Gradient effect on caption bar -->
+            <div id="header-grad"></div>
+
+            <!-- Draggable caption bar content -->
+            <div id="drag-handle"></div>
+
+            <!-- Window control buttons -->
+            <div class="btn_caption" id="btn-caption-close" onclick="onWindowClose_pref()">
+                <div class="btn-caption-icon" style="background-image: url('./img/btn-close.png')"></div>
+            </div>
+            <div class="btn_caption btn_caption_alt" onclick="onWindowRestore_pref()">
+                <div class="btn-caption-icon" style="background-image: url('./img/btn-max.png')"></div>
+            </div>
+            <div class="btn_caption btn_caption_alt" onclick="onWindowMinimise_pref()">
+                <div class="btn-caption-icon" style="background-image: url('./img/btn-min.png')"></div>
+            </div>
+
+            <!-- Be sure to change this to the title if the title changes ! -->
+            <div id="captionbar-title">Preferences :: AudioHub</div>
+            
+            <!-- Imported elements -->
+            <script>HTMLImporter.import("./include/incl_wndcomm.html");</script>
+            <!-- End imported -->
+        </header>
+        
+        <h1>Preferences window.</h1>
+    </body>
+</html>

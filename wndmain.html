@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="./styles/styles-precompute.css"/>
+        <link rel="stylesheet" href="./styles/_stylesheet_main.css"/>
+        <link rel="stylesheet" href="./styles/styles-captionbar.css"/>
+        <link rel="stylesheet" href="./styles/styles-toolbar.css"/>
+        <link rel="stylesheet" href="./styles/styles-dropdowns.css"/>
+        <link rel="stylesheet" href="./styles/styles-queue.css"/>
+        <link rel="stylesheet" href="./styles/styles-sliders.css"/>
+        <link rel="stylesheet" href="./styles/styles-visualiser.css"/>
+
+        <!-- Main audio player -->
+        <!-- Src is set from audiohandler.js -->
+        <!-- (Be sure to keep initialised before the javascripts) -->
+        <audio id="audio_player"></audio>
+
+        <!-- JavaScripts -->
+        <script type="text/javascript" src="./javascript/lib/html-import.js"></script>
+        <script type="text/javascript" src="./javascript/lib/methods.js"></script>
+        <script type="text/javascript" src="./javascript/audiohandler.js"></script>
+        <script type="text/javascript" src="./javascript/visualiser.js"></script>
+        <script type="text/javascript" src="./javascript/sliders.js"></script>
+        <script type="text/javascript" src="./javascript/dropdowns.js"></script>
+        <script type="text/javascript" src="./javascript/dragdrop.js"></script>
+        <script type="text/javascript" src="./javascript/jsmain.js"></script>
+
+        <title>AudioHub</title>
+    </head>
+    <body onload="windowLoaded()">
+        <!-- Caption bar -->
+        <header>
+            <!-- Gradient effect on caption bar -->
+            <div id="header-grad"></div>
+
+            <!-- Draggable caption bar content -->
+            <div id="drag-handle"></div>
+
+            <!-- Window control buttons -->
+            <div class="btn_caption" id="btn-caption-close" onclick="onWindowClose()">
+                <div class="btn-caption-icon" style="background-image: url('./img/btn-close.png')"></div>
+            </div>
+            <div class="btn_caption btn_caption_alt" onclick="onWindowRestore()">
+                <div class="btn-caption-icon" style="background-image: url('./img/btn-max.png')"></div>
+            </div>
+            <div class="btn_caption btn_caption_alt" onclick="onWindowMinimise()">
+                <div class="btn-caption-icon" style="background-image: url('./img/btn-min.png')"></div>
+            </div>
+
+            <!-- Be sure to change this to the title if the title changes ! -->
+            <div id="captionbar-title">AudioHub</div>
+            
+            <!-- Imported elements -->
+            <script>HTMLImporter.import("./include/incl_wndcomm.html");</script>
+            <!-- End imported -->
+            
+            <!-- Toolbar/menu
+                If this gets larger in future, possibly move down below the caption bar.
+            -->
+            <div id="toolbar-container">
+                <!-- File menu -->
+                <div class="dropdown">
+                    <div class="toolbar-string dropdown-btn">
+                        <span>File</span>
+                    </div>
+                    <div class="dropdown-list">
+                        <ul>
+                            <li onclick="openFileDialog ()">Open...</li>
+                            <li>Save as playlist</li>
+                            <li onclick="openPreferences()">Preferences</li>
+                            <li onclick="onWindowClose()">Exit</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Playback menu -->
+                <div class="dropdown">
+                    <div class="toolbar-string dropdown-btn">
+                        <span>Playback</span>
+                    </div>
+                    <div class="dropdown-list">
+                        <ul>
+                            <li>Start</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Debug menu -->
+                <div class="dropdown">
+                    <div class="toolbar-string dropdown-btn">
+                        <span>Debug</span>
+                    </div>
+                    <div class="dropdown-list">
+                        <ul>
+                            <li onclick="openDevTools()">Developer tools</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Help menu -->
+                <div class="dropdown">
+                    <div class="toolbar-string dropdown-btn">
+                        <span>?</span>
+                    </div>
+                    <div class="dropdown-list">
+                        <ul>
+                            <li>About</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                initialiseDropdowns ();
+            </script>
+        </header>
+
+        <!-- Displays all tracks currently in the queue -->
+        <div class="tracklist" id="tracklist-main">
+            <div id="tracklist-nofiles">
+                <br>No songs currently in queue.<br><br>Goto the 'File' menu to load tracks or playlists.<br>Alternatively, drop some tracks onto this window to add them to the queue.
+            </div>
+            <!-- Test items 
+            <div class="tracklist-item" onclick="change index function here">
+                <div class="tracklist-item-cover"></div>
+                <a class="tracklist-item-title">Untitled</a>
+                <a class="tracklist-item-artist">Unknown artist</a>
+                <a class="tracklist-item-filename">file.mp3</a>
+            </div>-->
+        </div>
+
+        <!-- Main control bar (bottom) -->
+        <div id="ctrl-bar-bottom">
+            <!-- Track brief -->
+            <div id="ctrl-bar-bottom-cover" style="z-index: -1;"></div>
+            <div id="track-cover"></div>
+            <div id="track-info">
+                <a id="track-title">Track title</a><br>
+                <a id="track-artist">Artist name</a>
+            </div>
+            <!-- Progress of the current track being played -->
+            <div id="slider-playback" class="slider-container">
+                <input type="range" min="0" max="1000" value="0" id="slider-playback-ctrl" class="slider-bar" disabled/>
+                <!-- Coloured Fill in for slider -->
+                <div class="slider-fill"></div>
+
+                <!-- Custom thumb to keep above fill. (Real one is set invisible) -->
+                <div class="slider-thumb-cont">
+                    <div class="slider-thumb"></div>
+                </div>
+            </div>
+            <!-- Buttons -->
+            <div id="btm_btn_container">
+                <!-- TODO: GIVE THESE BUTTONS IMAGES ----------------------------->
+                <input type="submit" value="Prev" class="btn_btm_ctrl" onclick="trackPrevious()"/>
+                <input type="submit" value="Play" class="btn_btm_ctrl" onclick="trackPlayPause()" id="btn_playpause"/>
+                <input type="submit" value="Next" class="btn_btm_ctrl" onclick="trackNext()"/>
+            </div>
+
+            <!-- Visualiser (TODO: Make optional) -->
+            <div id="visualiser">
+                <div id="vis-left">
+
+                </div>
+                <div id="vis-right">
+                    
+                </div>
+            </div>
+
+            <!-- Volume slider -->
+            <div id="slider-volume" class="slider-container">
+                <a id="slider-volume-label">80%</a>
+                <input type="range" min="0" max="100" value="80" id="slider-volume-ctrl" class="slider-bar"/>
+                <div class="slider-fill"></div>
+                <div class="slider-thumb-cont">
+                    <div class="slider-thumb"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Window Borders -->
+        <!-- Left -->
+        <div style="left: 0; bottom: 0; top: 0; width: 1px; background: var(--colour-border); position: absolute; z-index: 20;"></div>
+        <!-- Right -->
+        <div style="right: 0; bottom: 0; top: 0; width: 1px; background: var(--colour-border); position: absolute; z-index: 20;"></div>
+        <!-- Bottom -->
+        <div style="left: 0; bottom: 0; right: 0; height: 1px; background: var(--colour-border); position: absolute; z-index: 20;"></div>
+        <!-- Top -->
+        <div style="left: 0; top: 0; right: 0; height: 1px; background: var(--colour-border); position: absolute; z-index: 20;"></div>
+    </body>
+</html>
