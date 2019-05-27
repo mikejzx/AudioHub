@@ -3,6 +3,9 @@
 html {
     /* Common variables */
     --captionbar-height: 30px;
+    --content-area-margin-h: 64px;
+    --content-area-margin-t: 16px;
+    --content-area-margin-b: 128px;
     --ctrlbar-height: 90px;
     --tracklist-density: 80px;
     --tracklist-cover-size: calc(var(--tracklist-density) / 1.2);
@@ -12,7 +15,7 @@ html {
 
     /* Dark theme */
     --colour-fg: #151515;
-    --colour-bg: #0a0a0a;
+    --colour-bg: #0b0a0a;
     --colour-shadmain: #000;
     --colour-border: #000;
     --colour-text: #dddddd;
@@ -31,10 +34,12 @@ html {
     --colour-slider-disabled-bg: #333;
     --colour-slider-disabled-border: #323232;
     --colour-slider-disabled-thumb: #444;
+    --content-area-bg: rgba(255, 255, 255, 0.1);
 
     /* Light theme (Not 100% supported yet) 
     --colour-fg: #cccccc;
     --colour-bg: #bbbbbb;
+    --colour-shadmain: rgba(0, 0, 0, 0.4);
     --colour-border: #888;
     --colour-text: #222;
     --colour-dropdown-bg: #ccc;
@@ -51,7 +56,8 @@ html {
     --colour-slider-thumb-hover: #999;
     --colour-slider-disabled-bg: #333;
     --colour-slider-disabled-border: #323232;
-    --colour-slider-disabled-thumb: #444;*/
+    --colour-slider-disabled-thumb: #444;
+    --content-area-bg: rgba(0, 0, 0, 0.1);*/
 
     background-color: var(--colour-bg);
 

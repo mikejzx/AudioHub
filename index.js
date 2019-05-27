@@ -8,6 +8,7 @@ let prefwnd; // Preferences window
 
 app.on('ready', () => {
     wndinit_main();
+    //global.wndshow_pref();
 
     //mainwnd.openDevTools();
 
@@ -45,7 +46,7 @@ function wndinit_main () {
 
 global.wndshow_pref = () => {
     prefwnd = new BrowserWindow({
-        width: 400, height: 200,
+        width: 700, height: 350,
         minWidth: 400, minHeight: 200,
         frame: false, 
         transparent: false, hasShadow: true,
@@ -62,6 +63,8 @@ global.wndshow_pref = () => {
     prefwnd.on('close', () => {
         prefwnd = null;
     });
+
+    prefwnd.openDevTools();
 }
 
 const menuTemplate = [

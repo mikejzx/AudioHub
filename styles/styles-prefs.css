@@ -1,0 +1,31 @@
+
+/* Content area for the pref window */
+#pref-content-area {
+    top: calc(var(--captionbar-height) + var(--content-area-margin-t));
+    position: absolute;
+    left: var(--content-area-margin-h);
+    right: var(--content-area-margin-h);
+    bottom: var(--content-area-margin-b);
+    background-color: var(--content-area-bg);
+
+    overflow-x: none;
+    overflow-y: scroll;
+}
+
+#pref-table {
+    width: 100%;
+}
+
+#pref-table tr td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #000;
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+
+#pref-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#pref-table tr td:last-child { text-align: right !important; }

@@ -8,14 +8,19 @@
         <link rel="stylesheet" href="./styles/_stylesheet_main.css"/>
         <link rel="stylesheet" href="./styles/styles-captionbar.css"/>
         <link rel="stylesheet" href="./styles/styles-toolbar.css"/>
+        <link rel="stylesheet" href="./styles/styles-checkbox.css"/>
+
+        <!-- Specific to the pref window -->
+        <link rel="stylesheet" href="./styles/styles-prefs.css"/>
 
         <!-- JavaScripts -->
         <script type="text/javascript" src="./javascript/lib/html-import.js"></script>
         <script type="text/javascript" src="./javascript/jsprefs.js"></script>
-    
+        <script type="text/javascript" src="./javascript/checkboxs.js"></script>
+
         <title>Preferences :: AudioHub</title>
     </head>
-    <body onload="onWindowLoad_pref()">
+    <body onload="onWindowLoad_pref(); checkbox_initialise ();">
         <header>
             <!-- Gradient effect on caption bar -->
             <div id="header-grad"></div>
@@ -42,6 +47,26 @@
             <!-- End imported -->
         </header>
         
-        <h1>Preferences window.</h1>
+        <div id="pref-content-area">
+            <table id="pref-table">
+                <!-- Testing 1 -->
+                <tr>
+                    <td>Preference 1</td>
+                    <td>Set</td>
+                </tr>
+                <!-- Testing 2 -->
+                <tr>
+                    <td>Preference 2</td>
+                    <td>Set</td>
+                </tr>
+                <!-- Display visualiser setting -->
+                <tr>
+                    <td>Display visualiser</td>
+                    <td>
+                        <div class="checkbox"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
