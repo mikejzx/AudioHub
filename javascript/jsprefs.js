@@ -1,6 +1,6 @@
 
-const electron = require('electron');
-const win_prefs = electron.remote.getCurrentWindow();
+const { ipcRenderer, remote } = require('electron');
+const win_prefs = remote.getCurrentWindow();
 
 function onWindowLoad_pref() {}
 

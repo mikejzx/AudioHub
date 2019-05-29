@@ -53,6 +53,11 @@ function initialise_vis() {
 }
 
 function visualise() {
+    // Return if disabled. Probably not very efficient like this.
+    if (!remote.getGlobal("bShowVisualiser")) {
+        return;
+    }
+
     // Will not update if there's not audio, if it's not playing, or if the window is hidden/minimised.
     if (audio == null || !playing || !win.isVisible()) {
         return; 

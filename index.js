@@ -1,12 +1,17 @@
 
 const url = require('url');
 const path = require('path');
-const { Menu, app, BrowserWindow } = require('electron');
+const { Menu, app, BrowserWindow, ipcMain } = require('electron');
 
 let mainwnd; // Main window
 let prefwnd; // Preferences window
 
 app.on('ready', () => {
+    global.bShowVisualiser = true;
+
+    // Initialise functions that need ipc
+    ipcMain.on("toggle_visualiserstate", (event, newval) => { global.bShowVisualiser = newval; });
+
     wndinit_main();
     //global.wndshow_pref();
 

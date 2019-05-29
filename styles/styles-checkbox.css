@@ -6,12 +6,41 @@
     Currently rough for testing etc...
 */
 
+/* Base checkbox style */
 .checkbox {
     width: 16px;
     height: 16px;
     background-color: #f00;
+    margin-left: auto;
+
+    box-shadow: 1px 1px 4px var(--colour-shadmain);
 }
 
+/* A checked checkbox */
 .checkbox[checked] {
     background-color: #0f0 !important;
+}
+
+/* The actual internal tick of the checkbox */
+.checkbox > .checkbox-tick {
+    /* step-end is awesome, it immediately jumps to new value on end of trnasition */
+    transition: opacity 200ms, width 200ms step-end, height 200ms step-end;
+    opacity: 0.0;
+    width: 0;
+    height: 0;
+    margin-left: auto;
+    margin-bottom: auto;
+
+    position: relative;
+    background-image: url("../img/chbx-tick.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.checkbox[checked] > .checkbox-tick {
+    transition: width 200ms, height 200ms, opacity 100ms;
+
+    opacity: 1.0;
+    width: 100%;
+    height: 100%;
 }
