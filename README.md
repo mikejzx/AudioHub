@@ -1,6 +1,6 @@
 # AudioHub (previously AudioPlayerJS)
 A little application I thought I'd write - using the Electron framework in a Node.js environment.
-This could possibly be the replacement/successor/new-version of my <a href="https://github.com/mikejzx/AudioPlayerJS">MusicPlayer++ Win32 application</a>,
+This could possibly be the replacement/successor/new-version of my <a href="https://github.com/mikejzx/MusicPlayer-">MusicPlayer++ Win32 application</a>,
 as this app would be more portable, practical, versatile, (and easier to write) due to the cross-platform nature of the Electron Framework. Though I do enjoy writing C++ alot more, I felt as though it was impractical to write a huge Win32 application, (I may periodically commit to it anyway just for the hell of it, though a bit of intermission between commits can be expected over there.)
 
 # No builds yet. (Getting closer...)
