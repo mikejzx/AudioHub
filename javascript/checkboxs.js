@@ -4,6 +4,8 @@ function checkbox_initialise () {
     for (var i = 0; i < boxes.length; ++i) {
         init_cbox(boxes[i]);
     }
+
+    toggle_visualiser(document.getElementById('checkbox-visualisertoggle'));
 }
 
 function check_checkbox (box) {
@@ -14,8 +16,7 @@ function check_checkbox (box) {
 function init_cbox(box) {
     if (box.hasAttribute("onclick")) {
         var orig = box.getAttribute("onclick");
-        var semi = orig[orig.length - 1] == ";" ? "" : ";";
-        box.setAttribute("onclick", orig + semi + " check_checkbox(this);");
+        box.setAttribute("onclick", "check_checkbox(this); " + orig);
     }
     else {
         box.setAttribute("onclick", "check_checkbox(this);");
@@ -27,5 +28,6 @@ function init_cbox(box) {
 
 function toggle_visualiser(box) {
     //remote.getGlobal("bShowVisualiser") = box.hasAttribute("checked");
+    console.log("toggling to " + box.hasAttribute("checked"));
     ipcRenderer.send("toggle_visualiserstate", box.hasAttribute("checked"));
 }

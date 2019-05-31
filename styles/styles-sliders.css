@@ -99,7 +99,7 @@
     This makes sure both sides are even. */
 .slider-thumb-cont {
     /*width: calc(100% - var(--slider-thumb-half));*/
-    left: 4px; /* Just a constant that seems to work */
+    left: 2px; /* Just a constant that seems to work */
     right: var(--slider-thumb-half);
     position: absolute;
     pointer-events: none;

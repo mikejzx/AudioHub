@@ -7,7 +7,7 @@ let mainwnd; // Main window
 let prefwnd; // Preferences window
 
 app.on('ready', () => {
-    global.bShowVisualiser = true;
+    global.bShowVisualiser = false;
 
     // Initialise functions that need ipc
     ipcMain.on("toggle_visualiserstate", (event, newval) => { global.bShowVisualiser = newval; });
