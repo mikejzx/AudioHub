@@ -10,7 +10,7 @@ header {
     top: 0;
     position: absolute;
 
-    display: flex;
+    display: var(--captionbar-display);
     flex-direction: row-reverse;
     justify-content: flex-start;
     align-self: stretch;

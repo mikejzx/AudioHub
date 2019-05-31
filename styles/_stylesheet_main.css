@@ -3,6 +3,7 @@
 html {
     /* Common variables */
     --captionbar-height: 30px;
+    --captionbar-display: flex;
     --content-area-margin-h: 64px;
     --content-area-margin-t: 16px;
     --content-area-margin-b: 128px;
@@ -12,6 +13,10 @@ html {
     --slider-thumb-size: 16px;
     --slider-thumb-half: calc(0.5 * var(--slider-thumb-size));
     --visualiser-pt-width: 110px;
+
+    /* Enable these for no title bar */ 
+    --captionbar-height: 0;
+    --captionbar-display: none;
 
     /* Dark theme */
     --colour-fg: #151515;
@@ -35,6 +40,11 @@ html {
     --colour-slider-disabled-border: #323232;
     --colour-slider-disabled-thumb: #444;
     --content-area-bg: rgba(255, 255, 255, 0.1);
+    --colour-checkbox-bg: #444;
+    --colour-checkbox-bg-hover: #555;
+    --colour-checkbox-bg-selected: #555;
+    --colour-checkbox-bg-selected-hover: #444;
+    --filter-checkbox-tick: invert(100%);
 
     /* Light theme (Not 100% supported yet) 
     --colour-fg: #cccccc;

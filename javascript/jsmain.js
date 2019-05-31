@@ -8,6 +8,8 @@ setInterval(sliderCallback, 100);
 
 // When the window completes loading
 function windowLoaded () {
+    remote.getGlobal("share").openFileDialog = openFileDialog;
+
     console.log("window loaded");
     slidersInitialise(); // in sliders.js
     initialiseDragDrop (); // in dragdrop.js

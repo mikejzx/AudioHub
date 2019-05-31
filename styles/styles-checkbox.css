@@ -10,15 +10,28 @@
 .checkbox {
     width: 16px;
     height: 16px;
-    background-color: #f00;
+    background-color: var(--colour-checkbox-bg);
     margin-left: auto;
 
     box-shadow: 1px 1px 4px var(--colour-shadmain);
+
+    transition: background-color 200ms;
+}
+
+.checkbox:hover {
+    transition: background-color 200ms;
+    background-color: var(--colour-checkbox-bg-hover) !important;
 }
 
 /* A checked checkbox */
 .checkbox[checked] {
-    background-color: #0f0 !important;
+    transition: background-color 200ms;
+    background-color: var(--colour-checkbox-bg-selected) !important;
+}
+
+.checkbox[checked]:hover {
+    transition: background-color 200ms;
+    background-color: var(--colour-checkbox-bg-selected-hover) !important;
 }
 
 /* The actual internal tick of the checkbox */
@@ -35,6 +48,8 @@
     background-image: url("../img/chbx-tick.png");
     background-size: cover;
     background-position: center;
+
+    filter: var(--filter-checkbox-tick);
 }
 
 .checkbox[checked] > .checkbox-tick {

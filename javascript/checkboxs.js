@@ -4,8 +4,6 @@ function checkbox_initialise () {
     for (var i = 0; i < boxes.length; ++i) {
         init_cbox(boxes[i]);
     }
-
-    toggle_visualiser(document.getElementById('checkbox-visualisertoggle'));
 }
 
 function check_checkbox (box) {
@@ -30,4 +28,8 @@ function toggle_visualiser(box) {
     //remote.getGlobal("bShowVisualiser") = box.hasAttribute("checked");
     console.log("toggling to " + box.hasAttribute("checked"));
     ipcRenderer.send("toggle_visualiserstate", box.hasAttribute("checked"));
+}
+
+function toggle_nativetitlebar (box) {
+    ipcRenderer.send("toggle_nativetitlebar", box.hasAttribute("checked"));
 }

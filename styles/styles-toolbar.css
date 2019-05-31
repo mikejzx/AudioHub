@@ -2,7 +2,7 @@
 /* Contains each element of the toolbar */
 #toolbar-container {
     position: absolute;
-    height: inherit;
+    height: var(--captionbar-height);
     width: fit-content;
     left: 0;
     display: flex;
