@@ -9,6 +9,8 @@ var queueDisplays = []; // Every track's visual display
 var queueIdx = 0;
 var playState = "Play";
 var currentvolume = 0;
+var currentvolume_lin = 0;
+var currentvolume_log = 0;
 
 // TODO: Prevent duplicate blobs
 // Check if url is same and if so point to the originally-generated blob
@@ -251,6 +253,10 @@ function updateTitleText(newTitle) {
     var cap = newTitle + " : AudioHub";
     document.getElementsByTagName("title")[0].innerHTML = cap;
     document.getElementById("captionbar-title").innerHTML = cap;
+}
+
+function setAudioLogLin (logar) {
+    audio.volume = logar ? currentvolume_log : currentvolume_lin;
 }
 
 // NOTES/SAVED DOCUMENTATION FOR OFFLINE DEVELOPMENT

@@ -5,10 +5,19 @@ function slidersInitialise() {
         var t0 = document.getElementById("slider-volume-ctrl");
         var x = t0.value / 100.0;
 
-        // TODO: Allow user to select a volume 
+        // Allow user to select a volume 
         // scale curve (linear, logarithmic)
-        audio.volume = x * x;
+        if (global.bLogarithmicVol) {
+            // 'Logarithmic'
+            audio.volume = x * x;
+        }
+        else {
+            // Linear
+            audio.volume = x;
+        }
         currentvolume = audio.volume;
+        currentvolume_lin = x;
+        currentvolume_log = x * x;
 
         // Style fill-bar
         //var y = (100 * Math.pow(x, 0.75)) + "% !important";

@@ -9,6 +9,7 @@ setInterval(sliderCallback, 100);
 // When the window completes loading
 function windowLoaded () {
     remote.getGlobal("share").openFileDialog = openFileDialog;
+    remote.getGlobal("share").setAudioLogLin = setAudioLogLin;
 
     console.log("window loaded");
     slidersInitialise(); // in sliders.js

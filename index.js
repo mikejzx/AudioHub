@@ -11,8 +11,10 @@ app.on('ready', () => {
     global.bShowVisualiser = false;
     global.bNativeTitlebar = true;
     global.share = {
-        openFileDialog: null
+        openFileDialog: null,
+        setAudioLogLin: null // For setting logarithmic/linear between windows.
     };
+    global.bLogarithmicVol = true;
     
     // Initialise functions that need ipc
     ipcMain.on("toggle_visualiserstate", (event, newval) => { global.bShowVisualiser = newval; });
@@ -21,6 +23,7 @@ app.on('ready', () => {
             lWindows[i].frame = act;
         }
     });
+    ipcMain.on("toggle_logarithmicvol", (event, newval) => { global.bLogarithmicVol = newval; });
 
     wndinit_main();
     //global.wndshow_pref();

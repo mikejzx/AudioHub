@@ -33,3 +33,8 @@ function toggle_visualiser(box) {
 function toggle_nativetitlebar (box) {
     ipcRenderer.send("toggle_nativetitlebar", box.hasAttribute("checked"));
 }
+
+function toggle_logarithmicvol(box) {
+    var c = box.hasAttribute("checked");
+    remote.getGlobal("share").setAudioLogLin(box.hasAttribute("checked")); // Refresh audio volume
+}
